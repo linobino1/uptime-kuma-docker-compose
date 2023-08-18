@@ -33,6 +33,8 @@ services:
       - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
 
     labels:
+      - traefik.enable=true
+      
       # Redirect all HTTP traffic to HTTPS
       - traefik.http.middlewares.to-https.redirectscheme.scheme=https
       - traefik.http.routers.to-https.rule=HostRegexp(`{host:.+}`)
